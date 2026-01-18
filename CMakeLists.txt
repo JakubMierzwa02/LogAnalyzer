@@ -9,10 +9,15 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # ======================
-# Main executable
+# Main application
 # ======================
 add_executable(LogAnalyzer
     src/main.cpp
+)
+
+target_include_directories(LogAnalyzer
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
 )
 
 # ======================
@@ -37,8 +42,13 @@ add_executable(LogAnalyzerTests
     tests/test_basic.cpp
 )
 
+target_include_directories(LogAnalyzerTests
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
 target_link_libraries(LogAnalyzerTests
     Catch2::Catch2WithMain
 )
 
-add_test(NAME BasicTests COMMAND LogAnalyzerTests)
+add_test(NAME LogAnalyzerTests COMMAND LogAnalyzerTests)
