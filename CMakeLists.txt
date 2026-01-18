@@ -40,7 +40,8 @@ FetchContent_MakeAvailable(Catch2)
 enable_testing()
 
 add_executable(LogAnalyzerTests
-    tests/test_basic.cpp
+    tests/test_LogParser.cpp
+    src/LogParser.cpp
 )
 
 target_include_directories(LogAnalyzerTests

@@ -30,6 +30,23 @@ static std::string trim(const std::string& str)
 std::optional<std::chrono::system_clock::time_point> 
 parseTimestamp(const std::string& timestamp_str) 
 {
+    // Expected format: "YYYY-MM-DD HH:MM:SS" - exactly 19 characters
+    // First validate the length to ensure complete format
+    if (timestamp_str.length() != 19) 
+    {
+        return std::nullopt;
+    }
+    
+    // Validate the format structure: YYYY-MM-DD HH:MM:SS
+    // Positions: 0123456789012345678
+    // Check that separators are in the correct positions
+    if (timestamp_str[4] != '-' || timestamp_str[7] != '-' || 
+        timestamp_str[10] != ' ' || timestamp_str[13] != ':' || 
+        timestamp_str[16] != ':') 
+    {
+        return std::nullopt;
+    }
+    
     std::tm tm = {};
     std::istringstream ss(timestamp_str);
     
@@ -38,7 +55,7 @@ parseTimestamp(const std::string& timestamp_str)
     ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
     
     // Check if parsing was successful
-    if (ss.fail()) 
+    if (ss.fail())
     {
         return std::nullopt;
     }
