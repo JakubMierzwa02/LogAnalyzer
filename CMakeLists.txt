@@ -13,6 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # ======================
 add_executable(LogAnalyzer
     src/main.cpp
+    src/LogParser.cpp
 )
 
 target_include_directories(LogAnalyzer
