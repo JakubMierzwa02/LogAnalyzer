@@ -18,6 +18,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(LogAnalyzer
     src/main.cpp
     src/LogParser.cpp
+    src/EventDetector.cpp
 )
 
 target_include_directories(LogAnalyzer
@@ -45,7 +46,9 @@ enable_testing()
 
 add_executable(LogAnalyzerTests
     tests/test_LogParser.cpp
+    tests/test_EventDetector.cpp
     src/LogParser.cpp
+    src/EventDetector.cpp
 )
 
 target_include_directories(LogAnalyzerTests
