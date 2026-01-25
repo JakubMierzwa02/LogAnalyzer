@@ -19,6 +19,7 @@ add_executable(LogAnalyzer
     src/main.cpp
     src/LogParser.cpp
     src/EventDetector.cpp
+    src/ReportGenerator.cpp
 )
 
 target_include_directories(LogAnalyzer
@@ -47,8 +48,10 @@ enable_testing()
 add_executable(LogAnalyzerTests
     tests/test_LogParser.cpp
     tests/test_EventDetector.cpp
+    tests/test_ReportGenerator.cpp
     src/LogParser.cpp
     src/EventDetector.cpp
+    src/ReportGenerator.cpp
 )
 
 target_include_directories(LogAnalyzerTests
