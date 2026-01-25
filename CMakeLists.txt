@@ -49,9 +49,11 @@ add_executable(LogAnalyzerTests
     tests/test_LogParser.cpp
     tests/test_EventDetector.cpp
     tests/test_ReportGenerator.cpp
+    tests/test_ConfigManager.cpp
     src/LogParser.cpp
     src/EventDetector.cpp
     src/ReportGenerator.cpp
+    src/ConfigManager.cpp
 )
 
 target_include_directories(LogAnalyzerTests
