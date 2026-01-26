@@ -3,6 +3,7 @@
 #include "LogEntry.h"
 #include <chrono>
 #include <vector>
+#include <algorithm>
 
 /**
  * Unit tests for EventDetector class
@@ -276,10 +277,10 @@ TEST_CASE("EventDetector - Two IPs detected", "[EventDetector][detectMultipleIPA
     // Verify both IPs are in the list
     REQUIRE(std::find(results[0].ip_addresses.begin(), 
                      results[0].ip_addresses.end(), 
-                     "192.168.1.1") != results[0].ip_addresses.end());
+                     std::string("192.168.1.1")) != results[0].ip_addresses.end());
     REQUIRE(std::find(results[0].ip_addresses.begin(), 
                      results[0].ip_addresses.end(), 
-                     "10.0.0.1") != results[0].ip_addresses.end());
+                     std::string("10.0.0.1")) != results[0].ip_addresses.end());
 }
 
 TEST_CASE("EventDetector - Multiple IPs outside time window not detected", "[EventDetector][detectMultipleIPAddresses]") 
